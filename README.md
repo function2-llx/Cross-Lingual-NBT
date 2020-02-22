@@ -72,7 +72,14 @@ git clone https://github.com/wenhuchen/Cross-Lingual-NBT.git ./
 Please Download the [Bilingual embedding](https://drive.google.com/drive/folders/1gwXnZtDPDmnIWu9mryktWBojE9JvT4mg?usp=sharing) and put them into **word-vectors/** folder
 
 ### 2. Supervised Learning
-We use cross entropy loss to train the teacher model, please set "id=teacher-bilingual" and "restore=False" in the config file.
+We use cross entropy loss to train the teacher model, please set 
+
+```
+id=teacher-bilingual
+restore=False
+```
+
+in the configuration file.
 
 ```
 ./train.sh train
