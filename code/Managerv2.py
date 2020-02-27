@@ -260,9 +260,9 @@ class CrossNeuralBeliefTracker(BeliefTracker):
 
         self.word_vectors['UNK'] = xavier_vector("UNK")
 
-        for k, v in src_embedding.tems():
+        for k, v in src_embedding.items():
             self.word_vectors[k] = v
-        for k, v in trg_embedding.tems():
+        for k, v in trg_embedding.items():
             self.foreign_word_vectors[k] = v
 
     def replace_dict(self, batch_xs_full, utterance):
