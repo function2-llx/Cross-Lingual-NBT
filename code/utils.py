@@ -717,7 +717,7 @@ def generate_data(utterances, dialogue_ontology):
     positive_examples = {}
     negative_examples = {}
 
-    list_of_slots = dialogue_ontology.keys()
+    list_of_slots = list(dialogue_ontology.keys())
     for slot_idx, slot in enumerate(list_of_slots):
 
         positive_examples[slot] = []

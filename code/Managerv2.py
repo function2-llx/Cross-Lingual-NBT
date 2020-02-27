@@ -307,7 +307,7 @@ class CrossNeuralBeliefTracker(BeliefTracker):
 
         for iteration in range(self.max_iteration):
             rand = numpy.random.randint(0, len(self.dialogue_ontology))
-            target_slot = self.dialogue_ontology.keys()[rand]
+            target_slot = list(self.dialogue_ontology.keys())[rand]
             slot_vector, value_vector = self.slot_value(target_slot)
             slot_vector_foreign, value_vector_foreign = self.foreign_slot_value(self.primary2foreign[target_slot])
             mx = self.models[target_slot]
@@ -360,7 +360,7 @@ class CrossNeuralBeliefTracker(BeliefTracker):
                                                                                  foreign_language=self.foreign_language)
         for iteration in range(self.max_iteration):
             rand = numpy.random.randint(0, len(self.dialogue_ontology))
-            target_slot = self.dialogue_ontology.keys()[rand]
+            target_slot = list(self.dialogue_ontology.keys())[rand]
             slot_vector, value_vector = self.slot_value(target_slot)
             slot_vector_foreign, value_vector_foreign = self.foreign_slot_value(self.primary2foreign[target_slot])
             mx = self.models[target_slot]
@@ -402,7 +402,7 @@ class CrossNeuralBeliefTracker(BeliefTracker):
         trans_loss = []
         for iteration in range(self.max_iteration):
             rand = numpy.random.randint(0, len(self.dialogue_ontology))
-            target_slot = self.dialogue_ontology.keys()[rand]
+            target_slot = list(self.dialogue_ontology.keys())[rand]
             #target_slot = "request"
             batch_data = generate_examples(target_slot, train_feature_vectors, self.dialogue_ontology, \
                                            train_pos_examples, train_neg_examples, self.batch_size, 0)
