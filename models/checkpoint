@@ -1,0 +1,2 @@
+model_checkpoint_path: "transfer-model-en-de-student-corpus-bilingual"
+all_model_checkpoint_paths: "transfer-model-en-de-student-corpus-bilingual"
