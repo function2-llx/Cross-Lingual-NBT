@@ -91,7 +91,7 @@ class BeliefTracker(object):
         var_names = sorted([(var.name, var.name.split(':')[0]) for var in tf.global_variables()
                             if var.name.split(':')[0] in saved_shapes])
         restore_vars = []
-        name2var = dict(zip(map(lambda x: x.name.split(':')[0], tf.global_variables()), tf.global_variables()))
+        name2var = dict(zip(list(map(lambda x: x.name.split(':')[0], tf.global_variables()), tf.global_variables())))
 
         with tf.variable_scope('', reuse=True):
             for var_name, saved_var_name in var_names:
@@ -144,11 +144,11 @@ class CrossNeuralBeliefTracker(BeliefTracker):
         name = 'data/trans/parallel.{}-{}.{}.txt'.format(self.language_suffix, self.foreign_language_suffix, self.language_suffix)
         if os.path.exists(name):
             with codecs.open(name, 'r', 'utf8') as f:
-                self.translation_source = map(lambda x: x.strip(), f.readlines())
+                self.translation_source = list(map(lambda x: x.strip(), f.readlines()))
         name = 'data/trans/parallel.{}-{}.{}.txt'.format(self.language_suffix, self.foreign_language_suffix, self.foreign_language_suffix)
         if os.path.exists(name):
             with codecs.open(name, 'r', 'utf8') as f:
-                self.translation_target = map(lambda x: x.strip(), f.readlines())
+                self.translation_target = list(map(lambda x: x.strip(), f.readlines()))
 
         self.foreign2primary = {}
         self.primary2foreign = {}
@@ -260,9 +260,9 @@ class CrossNeuralBeliefTracker(BeliefTracker):
 
         self.word_vectors['UNK'] = xavier_vector("UNK")
 
-        for k, v in src_embedding.items():
+        for k, v in src_embedding.tems():
             self.word_vectors[k] = v
-        for k, v in trg_embedding.items():
+        for k, v in trg_embedding.tems():
             self.foreign_word_vectors[k] = v
 
     def replace_dict(self, batch_xs_full, utterance):
