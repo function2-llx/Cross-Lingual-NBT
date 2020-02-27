@@ -529,7 +529,7 @@ def generate_examples(target_slot, feature_vectors, dialogue_ontology, positive_
                 features_confirm_values, y_labels, features_previous_state)
 
 def extract_system_act_vectors(utterances, word_vectors, foreign_word_vectors, primary2foreign):
-    word_vector_size = random.choice(word_vectors.values()).shape[0]
+    word_vector_size = random.choice(list(word_vectors.values())).shape[0]
     system_acts = []
     system_acts_foreign = []
 
@@ -575,7 +575,7 @@ def extract_feature_vectors(utterances, word_vectors, longest_utterance_length=4
     This can run on any size, including a single utterance.
     """
     stemmer = SnowballStemmer(language)
-    word_vector_size = random.choice(word_vectors.values()).shape[0]
+    word_vector_size = random.choice(list(word_vectors.values())).shape[0]
 
     utterance_count = len(utterances)
     ngram_feature_vectors = []
@@ -671,7 +671,7 @@ def extract_trans_feature_vectors(source_sentence, target_sentence, word_vectors
     sentence_count = len(source_sentence)
     ngram_src_vectors = []
     ngram_trg_vectors = []
-    word_vector_size = random.choice(word_vectors.values()).shape[0]
+    word_vector_size = random.choice(list(word_vectors.values())).shape[0]
     success = 0
     fail = 0
     # let index 6 denote full FV (for conv net):
