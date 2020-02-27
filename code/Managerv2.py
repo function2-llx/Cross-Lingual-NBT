@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import string
-import ConfigParser
+import configparser
 import types
 import json
 from modelv2 import NBTModel
@@ -20,7 +20,7 @@ class BeliefTracker(object):
     Parent Belief Tracking class
     """
     def __init__(self, config_filepath):
-        config = ConfigParser.RawConfigParser()
+        config = configparser.RawConfigParser()
         self.config = config
         try:
             config.read(config_filepath)
@@ -134,7 +134,7 @@ class CrossNeuralBeliefTracker(BeliefTracker):
         bilingual_dict = 'word-vectors/{}-{}.dictionary.sorted.filtered'.format(self.language_suffix, self.foreign_language_suffix)
         if os.path.exists(bilingual_dict):
             self.bilingual_dictionary = bilingual_dictionary(bilingual_dict)
-        self.word_vector_size = random.choice(self.word_vectors.values()).shape[0]
+        self.word_vector_size = random.choice(list(self.word_vectors.values())).shape[0]
 
         with codecs.open("ontologies/ontology_dstc2_{}.json".format(self.language_suffix), 'r', 'utf8') as f:
             self.dialogue_ontology = json.load(f)["informable"]
