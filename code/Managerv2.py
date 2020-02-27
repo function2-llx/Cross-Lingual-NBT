@@ -197,16 +197,16 @@ class CrossNeuralBeliefTracker(BeliefTracker):
                 constituents = ont.split(" ")
                 if constituents[0] not in word_vectors:
                     word_vectors[constituents[0]] = xavier_vector(constituents[0])
-                    print "failed {}".format(constituents[0])
+                    print("failed {}".format(constituents[0]))
                 if constituents[1] not in word_vectors:
                     word_vectors[constituents[1]] = xavier_vector(constituents[1])
-                    print "failed {}".format(constituents[1])
+                    print("failed {}".format(constituents[1]))
                 ontology_embedding[ont] = word_vectors[constituents[0]] + word_vectors[constituents[1]]
                 ontology_embedding[constituents[0]] = word_vectors[constituents[0]]
                 ontology_embedding[constituents[1]] = word_vectors[constituents[1]]
             else:
                 ontology_embedding[ont] = xavier_vector(ont)
-                print "failed {}".format(ont)
+                print("failed {}".format(ont))
             for term in ontology[ont]:
                 if term in word_vectors:
                     ontology_embedding[term] = word_vectors[term]
@@ -214,16 +214,16 @@ class CrossNeuralBeliefTracker(BeliefTracker):
                     constituents = term.split(" ")
                     if constituents[0] not in word_vectors:
                         word_vectors[constituents[0]] = xavier_vector(constituents[0])
-                        print "failed {}".format(constituents[0])
+                        print("failed {}".format(constituents[0]))
                     if constituents[1] not in word_vectors:
                         word_vectors[constituents[1]] = xavier_vector(constituents[1])
-                        print "failed {}".format(constituents[1])
+                        print("failed {}".format(constituents[1]))
                     ontology_embedding[term] = word_vectors[constituents[0]] + word_vectors[constituents[1]]
                     ontology_embedding[constituents[0]] = word_vectors[constituents[0]]
                     ontology_embedding[constituents[1]] = word_vectors[constituents[1]]
                 else:
                     ontology_embedding[term] = xavier_vector(term)
-                    print "failed {}".format(term.encode('utf8'))
+                    print("failed {}".format(term.encode('utf8')))
         return ontology_embedding
 
     def slot_name(self, name, language):
@@ -413,7 +413,7 @@ class CrossNeuralBeliefTracker(BeliefTracker):
             loss = mx.train(self.sess, batch_xs_full, batch_sys_req, batch_sys_conf_slots, \
                             batch_sys_conf_values, batch_ys, batch_ys_prev, slot_vector, value_vector)
             dialogue_loss.append(loss)
-            #print "Iteration:{} Transfer loss = {}".format(iteration, loss)
+            #print("Iteration:{} Transfer loss = {}".format(iteration, loss))
             #"""
             if iteration % 2000 == 0 and iteration > 0:
                 #print("testing native language accuracy")

@@ -232,10 +232,10 @@ def evaluate_woz(f, dialogue_ontology, printing=True):
                     flag = true_states[slot] == prediction_states[slot]
                     if not flag and slot == "food":
                         with open("/tmp/errors", "a") as f:
-                            print >> f, turn['ASR']
-                            print >> f, turn['True State']
-                            print >> f, turn['Prediction']
-                            print >> f, turn['Previous State']
+                            print(turn['ASR'], file=f)
+                            print(turn['True State'], file=f)
+                            print(turn['Prediction'], file=f)
+                            print(turn['Previous State'], file=f)
 
                 if flag:
                     hit[slot] += 1
@@ -257,12 +257,12 @@ def evaluate_woz(f, dialogue_ontology, printing=True):
     none_req_acc = none_hit['request'] / (none_hit['request'] + none_miss['request'] + 0.01)
     none_goal_acc = none_hit['goal'] / (none_hit['goal'] + none_miss['goal'] + 0.01)
     if printing:
-        print "-----------------------------------------------------------"
+        print("-----------------------------------------------------------")
         print("request accuracy is {}".format(req_acc))
         print("joint goal accuracy is {}".format(goal_acc))
         print("none request accuracy is {}".format(none_req_acc))
         print("none joint goal accuracy is {}".format(none_goal_acc))
-        print "-----------------------------------------------------------"
+        print("-----------------------------------------------------------")
 
     return req_acc, goal_acc
 
@@ -394,7 +394,7 @@ def process_woz_dialogue(woz_dialogue, language, override_en_ontology):
 
         current_bs = deepcopy(prev_belief_state)
 
-        # print "=====", prev_belief_state
+        # print("=====", prev_belief_state)
         if "request" in prev_belief_state:
             del prev_belief_state["request"]
 
@@ -634,7 +634,7 @@ def extract_feature_vectors(utterances, word_vectors, longest_utterance_length=4
         full_fv = numpy.zeros((longest_utterance_length * word_vector_size,), dtype="float32")
 
         if full_asr != "":
-            # print c_example
+            # print(c_example)
             words_utterance = full_asr
             for word_idx, word in enumerate(words_utterance.split()):
                 if word_idx == longest_utterance_length:
@@ -653,7 +653,7 @@ def extract_feature_vectors(utterances, word_vectors, longest_utterance_length=4
 
         ngram_feature_vectors[idx] = numpy.reshape(full_fv, (longest_utterance_length, word_vector_size))
 
-    #print "reading dialogue, success={}, fail={}".format(success, fail)
+    #print("reading dialogue, success={}, fail={}".format(success, fail))
     list_of_features = []
     for idx in range(0, utterance_count):
         list_of_features.append((ngram_feature_vectors[idx],
@@ -709,7 +709,7 @@ def extract_trans_feature_vectors(source_sentence, target_sentence, word_vectors
                 success += 1
             full_fv[word_idx * word_vector_size: (word_idx + 1) * word_vector_size] = foreign_word_vectors[word]
             ngram_trg_vectors[idx] = numpy.reshape(full_fv, (longest_utterance_length, word_vector_size))
-    print "reading translation success={}, fail={}".format(success, fail)
+    print("reading translation success={}, fail={}".format(success, fail))
 
     return ngram_src_vectors, ngram_trg_vectors
 
@@ -740,7 +740,7 @@ def generate_data(utterances, dialogue_ontology):
             elif slot == "request":
                 if not slot_expressed_in_utterance:
                     negative_examples[slot].append((utterance_idx, utterance, []))
-                    # print utterance[0][0], utterance[4]
+                    # print(utterance[0][0], utterance[4])
                 else:
                     values_expressed = []
                     for value_idx, value in enumerate(dialogue_ontology[slot]):
