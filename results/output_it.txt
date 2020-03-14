@@ -1,0 +1,139 @@
+/usr/local/lib/python2.7/dist-packages/requests/__init__.py:83: RequestsDependencyWarning: Old version of cryptography ([1, 2, 3]) may cause slowdown.
+  warnings.warn(warning, RequestsDependencyWarning)
+WARNING:tensorflow:From /home/luolingxiao/Cross-Lingual-NBT/code/modelv2.py:145: calling l2_normalize (from tensorflow.python.ops.nn_impl) with dim is deprecated and will be removed in a future version.
+Instructions for updating:
+dim is deprecated, use axis instead
+WARNING:tensorflow:From /home/luolingxiao/Cross-Lingual-NBT/code/modelv2.py:179: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See tf.nn.softmax_cross_entropy_with_logits_v2.
+
+2020-03-02 12:46:36.560394: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 0 with properties: 
+name: TITAN Xp major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:02:00.0
+totalMemory: 11.91GiB freeMemory: 2.11GiB
+2020-03-02 12:46:36.862344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 1 with properties: 
+name: TITAN Xp major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:03:00.0
+totalMemory: 11.91GiB freeMemory: 2.24GiB
+2020-03-02 12:46:37.146450: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 2 with properties: 
+name: TITAN Xp major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:82:00.0
+totalMemory: 11.91GiB freeMemory: 690.06MiB
+2020-03-02 12:46:37.442087: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 3 with properties: 
+name: TITAN Xp major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:83:00.0
+totalMemory: 11.91GiB freeMemory: 260.06MiB
+2020-03-02 12:46:37.444823: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1227] Device peer to peer matrix
+2020-03-02 12:46:37.445081: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1233] DMA: 0 1 2 3 
+2020-03-02 12:46:37.445116: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1243] 0:   Y Y N N 
+2020-03-02 12:46:37.445141: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1243] 1:   Y Y N N 
+2020-03-02 12:46:37.445172: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1243] 2:   N N Y Y 
+2020-03-02 12:46:37.445195: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1243] 3:   N N Y Y 
+2020-03-02 12:46:37.445238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1312] Adding visible gpu devices: 0, 1, 2, 3
+2020-03-02 12:46:39.833358: I tensorflow/core/common_runtime/gpu/gpu_device.cc:993] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1806 MB memory) -> physical GPU (device: 0, name: TITAN Xp, pci bus id: 0000:02:00.0, compute capability: 6.1)
+2020-03-02 12:46:39.865899: I tensorflow/core/common_runtime/gpu/gpu_device.cc:993] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 1942 MB memory) -> physical GPU (device: 1, name: TITAN Xp, pci bus id: 0000:03:00.0, compute capability: 6.1)
+2020-03-02 12:46:39.906274: I tensorflow/core/common_runtime/gpu/gpu_device.cc:993] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 415 MB memory) -> physical GPU (device: 2, name: TITAN Xp, pci bus id: 0000:82:00.0, compute capability: 6.1)
+2020-03-02 12:46:39.927151: I tensorflow/core/common_runtime/gpu/gpu_device.cc:993] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 210 MB memory) -> physical GPU (device: 3, name: TITAN Xp, pci bus id: 0000:83:00.0, compute capability: 6.1)
+2020-03-02 12:46:39.928380: E tensorflow/stream_executor/cuda/cuda_driver.cc:936] failed to allocate 210.06M (220266496 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY
+('value_specific_decoder', False)
+('learn_belief_state_update', True)
+loading from file data/woz/tok_woz_train_en.json totally 600 dialogues
+loading from file data/woz/tok_woz_validate_en.json totally 200 dialogues
+failed canapes
+failed gastropub
+failed panasian
+failed eritrean
+failed Gastropub
+failed halal
+failed panasian
+loading from file data/woz/tok_woz_test_en.json totally 400 dialogues
+loading from file data/woz/tok_woz_test_it.json totally 400 dialogues
+loading from file data/woz/tok_woz_validate_en.json totally 200 dialogues
+loading from file data/woz/tok_woz_validate_it.json totally 200 dialogues
+=========================== Model declaration ===========================
+('Hidden layer size:', 100, 'Label Size:', 92, 'Use Softmax:', True)
+=========================== Model declaration ===========================
+('Hidden layer size:', 100, 'Label Size:', 6, 'Use Softmax:', True)
+=========================== Model declaration ===========================
+('Hidden layer size:', 100, 'Label Size:', 7, 'Use Softmax:', False)
+=========================== Model declaration ===========================
+('Hidden layer size:', 100, 'Label Size:', 4, 'Use Softmax:', True)
+('----------- Loading Model', 'models/transfer-model-en-it-teacher-bilingual', ' ----------------')
+building corpus transfer NBT
+reading translation success=5629781, fail=40632
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.6338, 'Request acc: ', 0.62446)
+('Testing Goal acc: ', 0.60912, 'Request acc: ', 0.59803)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.67194, 'Request acc: ', 0.6816)
+('Testing Goal acc: ', 0.6547, 'Request acc: ', 0.6392)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66784, 'Request acc: ', 0.69793)
+('Testing Goal acc: ', 0.649, 'Request acc: ', 0.65489)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66021, 'Request acc: ', 0.71426)
+('Testing Goal acc: ', 0.65527, 'Request acc: ', 0.65881)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.67488, 'Request acc: ', 0.71426)
+('Testing Goal acc: ', 0.65983, 'Request acc: ', 0.66273)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.67723, 'Request acc: ', 0.72242)
+('Testing Goal acc: ', 0.65926, 'Request acc: ', 0.67058)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.67253, 'Request acc: ', 0.73058)
+('Testing Goal acc: ', 0.64701, 'Request acc: ', 0.67058)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.6784, 'Request acc: ', 0.74283)
+('Testing Goal acc: ', 0.64815, 'Request acc: ', 0.67646)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66608, 'Request acc: ', 0.74691)
+('Testing Goal acc: ', 0.64815, 'Request acc: ', 0.6745)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.65786, 'Request acc: ', 0.73875)
+('Testing Goal acc: ', 0.65213, 'Request acc: ', 0.67646)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66901, 'Request acc: ', 0.73875)
+('Testing Goal acc: ', 0.65242, 'Request acc: ', 0.67254)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66138, 'Request acc: ', 0.73875)
+('Testing Goal acc: ', 0.65441, 'Request acc: ', 0.67842)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66432, 'Request acc: ', 0.75099)
+('Testing Goal acc: ', 0.64815, 'Request acc: ', 0.6843)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66842, 'Request acc: ', 0.75099)
+('Testing Goal acc: ', 0.65128, 'Request acc: ', 0.6843)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.6649, 'Request acc: ', 0.76323)
+('Testing Goal acc: ', 0.65213, 'Request acc: ', 0.6843)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66725, 'Request acc: ', 0.75099)
+('Testing Goal acc: ', 0.64501, 'Request acc: ', 0.6843)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.67077, 'Request acc: ', 0.75915)
+('Testing Goal acc: ', 0.6527, 'Request acc: ', 0.68626)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66666, 'Request acc: ', 0.75507)
+('Testing Goal acc: ', 0.65527, 'Request acc: ', 0.68626)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.6649, 'Request acc: ', 0.75915)
+('Testing Goal acc: ', 0.65071, 'Request acc: ', 0.6843)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.6649, 'Request acc: ', 0.76323)
+('Testing Goal acc: ', 0.64729, 'Request acc: ', 0.68822)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66197, 'Request acc: ', 0.77548)
+('Testing Goal acc: ', 0.65128, 'Request acc: ', 0.68626)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.65551, 'Request acc: ', 0.77548)
+('Testing Goal acc: ', 0.6547, 'Request acc: ', 0.69018)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66608, 'Request acc: ', 0.77548)
+('Testing Goal acc: ', 0.65441, 'Request acc: ', 0.6941)
+testing transfer langauge accuracy
+('Validation Goal acc: ', 0.66255, 'Request acc: ', 0.75099)
+('Testing Goal acc: ', 0.65071, 'Request acc: ', 0.6843)
